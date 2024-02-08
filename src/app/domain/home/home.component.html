@@ -1,1 +1,14 @@
-<p>home works!</p>
+<section class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4 px-10 mt-8">
+  <div class="flex flex-wrap w-full mb-8">
+    <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
+      <h1 class="text-2xl font-medium title-font mb-2 text-gray-900">Nuestros productos</h1>
+      <div class="h-1 w-20 bg-primary rounded"></div>
+    </div>
+  </div>
+
+  <div class="container mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+      <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+    </div>
+  </div>
+</section>

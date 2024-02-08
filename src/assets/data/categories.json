@@ -1,0 +1,123 @@
+[
+  {
+    "id": "3a7963f2-3f33-453a-a6d7-a738dab90441",
+    "name": "Nutrición",
+    "slug": "nutricion",
+    "description": "La nutrición es importante para la salud del cuerpo humano en general.",
+    "banner": "assets/images/banners/Banner_Web_Vivactiv_1600x213px-01.jpg",
+    "icon": "",
+    "shortcut": false,
+    "featured": true,
+    "shortDescription": "Cuida tu salud mejorando tu nutrición"
+  },
+  {
+    "id": "00ae789a-d01f-41eb-a4d5-fbaf6dba81b4",
+    "name": "Cuidado personal",
+    "slug": "cuidado-personal",
+    "description": "",
+    "banner": "assets/images/banners/loreal-cuidadopersonal-web.jpg",
+    "icon": "",
+    "shortcut": false,
+    "featured": true,
+    "shortDescription": "Cuidar tu higiene, bienestar y cuerpo es necesario para gozar de una buena salud"
+  },
+  {
+    "id": "edb60c26-8ae1-466f-990d-988fda82b8b7",
+    "name": "Mamá y bebé",
+    "slug": "mama-y-bebe",
+    "description": "",
+    "banner": "",
+    "icon": "",
+    "shortcut": false,
+    "featured": true,
+    "shortDescription": "El mejor cuidado para ti y tu bebé"
+  },
+  {
+    "id": "b6856d0a-e10f-4147-a99b-a8542a0c2495",
+    "name": "Belleza",
+    "slug": "belleza",
+    "description": "",
+    "banner": "",
+    "icon": "",
+    "shortcut": false,
+    "featured": true,
+    "shortDescription": "Encuentra los precios más bajos para verte y sentirte bien"
+  },
+  {
+    "id": "753a0718-5297-459e-882e-3cdd68b8bba4",
+    "name": "Adulto mayor",
+    "slug": "adulto-mayor",
+    "description": "",
+    "banner": "",
+    "icon": "",
+    "shortcut": false,
+    "featured": true,
+    "shortDescription": "Los mejores precios en medicinas y para el cuidado del adulto mayor"
+  },
+  {
+    "id": "3c2d8e35-ecfc-4506-acd0-2a6f1f3b6e26",
+    "name": "Productos naturales",
+    "slug": "productos-naturales",
+    "description": "",
+    "banner": "",
+    "icon": "",
+    "shortcut": false,
+    "featured": true,
+    "shortDescription": "Los mejores productos naturales a tu alcance"
+  },
+  {
+    "id": "0bd77c06-5dc1-4862-997c-71066b321168",
+    "name": "Marcas propias",
+    "slug": "marcas-propias",
+    "description": "Nos preocupamos por tu bienestar y sabemos que tu tiempo es valioso por eso disfruta de nuestras marcas propias aprobadas y seguras",
+    "banner": "assets/images/banners/sunvit-tabletas-mundobienestar-web.jpg",
+    "icon": "",
+    "shortcut": false,
+    "featured": true,
+    "shortDescription": "Disfruta de la calidad y precio de nuestras marcas"
+  },
+  {
+    "id": "ff7e6a3c-83c3-43a0-8dca-b947d663bf90",
+    "name": "Deportes",
+    "slug": "deportes",
+    "description": "",
+    "banner": "",
+    "icon": "",
+    "shortcut": false,
+    "featured": true,
+    "shortDescription": "Aprovecha los precios bajos para cuidar la salud física de toda tu familia"
+  },
+  {
+    "id": "4c4425e2-63be-4b6d-b691-536e4e523cf7",
+    "name": "Cuidado del hogar",
+    "slug": "cuidado-del-hogar",
+    "description": "",
+    "banner": "",
+    "icon": "",
+    "shortcut": false,
+    "featured": true,
+    "shortDescription": "Encuentra lo que necesitas para mantener tu casa limpia y cuidada"
+  },
+  {
+    "id": "aa19a527-01d7-4ac3-bdbe-2167647ce44f",
+    "name": "Farmacia",
+    "slug": "farmacia",
+    "description": "",
+    "banner": "assets/images/banners/Cross-DiasOh-hasta6cuotas-web.jpg",
+    "icon": "",
+    "shortcut": true,
+    "featured": false,
+    "shortDescription": ""
+  },
+  {
+    "id": "ed7fd939-280c-4770-8fb7-1b268b438c5b",
+    "name": "Dermocosmética",
+    "slug": "dermocosmetica",
+    "description": "",
+    "banner": "assets/images/banners/eucerin-dermocosmetica-web.png",
+    "icon": "",
+    "shortcut": true,
+    "featured": false,
+    "shortDescription": ""
+  }
+]

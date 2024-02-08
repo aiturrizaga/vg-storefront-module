@@ -1,0 +1,102 @@
+<div *ngIf="product"
+     class="bg-white h-full flex flex-col rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg">
+  <img class="h-40 rounded w-full object-contain object-center mt-4 mb-6 cursor-pointer"
+       [src]="product.thumbnail" [alt]="product.name" [routerLink]="['/products', product.slug]">
+  <div class="px-4 flex-1">
+    <h3 class="tracking-widest text-gray-400 text-xs font-medium title-font">{{ product.brand | uppercase }}</h3>
+    <h2 class="text-lg text-gray-900 font-medium title-font">
+      <a [routerLink]="['/products', product.slug]">{{ product.name }}</a>
+    </h2>
+    <h4 class="text-sm text-gray-800 font-medium">{{ product.presentation }}</h4>
+    <div class="flex items-center mt-1.5 mb-2.5">
+      <div class="flex items-center space-x-1 rtl:space-x-reverse">
+        <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="currentColor"
+             viewBox="0 0 22 20">
+          <path
+            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+        </svg>
+        <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="currentColor"
+             viewBox="0 0 22 20">
+          <path
+            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+        </svg>
+        <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="currentColor"
+             viewBox="0 0 22 20">
+          <path
+            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+        </svg>
+        <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="currentColor"
+             viewBox="0 0 22 20">
+          <path
+            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+        </svg>
+        <svg class="w-4 h-4 text-gray-200" aria-hidden="true"
+             xmlns="http://www.w3.org/2000/svg"
+             fill="currentColor" viewBox="0 0 22 20">
+          <path
+            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+        </svg>
+      </div>
+      <span
+        class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded ms-3">{{ product.rating | number:'1.1-2' }}</span>
+    </div>
+
+    <div class="flex flex-col" *ngIf="product.prices && product.prices.length > 0">
+      <div *ngFor="let item of productHelper.getFlatPrices(product.prices)"
+           class="flex items-start justify-between mb-1">
+        <div class="text-sm font-bold text-gray-500"
+             *ngIf="item.visible"
+             [ngClass]="{'text-blue-700': item.description === 'OH'}">
+          {{ item.currency }} {{ item.price | number:'1.2-5' }}
+        </div>
+        <div [ngSwitch]="item.description">
+          <img *ngSwitchCase="'OH'" src="assets/images/logos/tarjeta-oh.svg" class="h-6 w-6" alt="Tarjeta Oh!">
+          <div *ngSwitchDefault class="text-sm font-bold text-gray-500">
+            <span *ngIf="item.visible">{{ item.description }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="px-6 pt-4 pb-2 mb-2">
+    <div *ngIf="product.prices && product.prices.length > 0">
+      <div *ngFor="let item of productHelper.getSalientPrice(product.prices)" class="flex flex-col items-start">
+        <span class="text-xs font-medium text-gray-700">{{ item.description }} {{ item.description ? ':' : '' }}</span>
+        <span class="text-lg font-bold text-gray-900">{{ item.currency }} {{ item.price | number:'1.2-5' }}</span>
+      </div>
+    </div>
+
+    <button type="button" class="btn-primary border border-primary w-full mt-4" (click)="increase()"
+            *ngIf="quantity === 0">
+      Agregar
+    </button>
+
+    <div class="relative flex items-center w-full mt-4" *ngIf="quantity > 0">
+      <button type="button" (click)="decrease()"
+              class="bg-info border border-gray-400 hover:bg-primary hover:text-white rounded-s-lg px-4 py-3 focus:outline-none">
+        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+             viewBox="0 0 18 2">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
+        </svg>
+      </button>
+
+      <input type="text" [(ngModel)]="quantity"
+             class="bg-info text-center text-gray-800 text-sm border-y border-gray-400 font-medium block w-full py-2 focus:outline-none"
+             placeholder="999">
+
+      <button type="button" (click)="increase()"
+              class="bg-info border border-gray-400 hover:bg-primary hover:text-white rounded-e-lg px-4 py-3 focus:outline-none">
+        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+             viewBox="0 0 18 18">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 1v16M1 9h16"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</div>

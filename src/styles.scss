@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.btn-primary {
+  @apply text-white bg-blue-900 hover:opacity-85 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center;
+
+  &.btn-large {
+    @apply font-bold text-lg px-8 py-3;
+  }
+}

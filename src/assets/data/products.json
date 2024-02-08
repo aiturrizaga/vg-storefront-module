@@ -1,0 +1,126 @@
+[
+  {
+    "id": 1,
+    "brand": "EUCERIN",
+    "name": "Protector Solar Facial en Gel Crema Oil Control FPS50",
+    "slug": "protector-solar-eucerin-oil-control-toque-seco-fps",
+    "presentation": "Frasco 50 ml",
+    "thumbnail": "https://dcuk1cxrnzjkh.cloudfront.net/imagesproducto/009064L.jpg",
+    "rating": 5,
+    "image": {
+      "large": "https://dcuk1cxrnzjkh.cloudfront.net/imagesproducto/009064L.jpg"
+    },
+    "prices": [
+      {
+        "currency": "S/",
+        "price": 94.90,
+        "description": "",
+        "fromUnit": 1,
+        "salient": true,
+        "visible": true,
+        "default": true
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "brand": "EUCERIN",
+    "name": "Sérum Facial Eucerin Anti-Pigment Ultra Light",
+    "slug": "serum-antimanchas-eucerin-para-piel-grasa",
+    "presentation": "Frasco 30 ml",
+    "thumbnail": "https://dcuk1cxrnzjkh.cloudfront.net/imagesproducto/038409L.jpg",
+    "rating": 5,
+    "image": {
+      "large": "https://dcuk1cxrnzjkh.cloudfront.net/imagesproducto/038409L.jpg"
+    },
+    "prices": [
+      {
+        "currency": "S/",
+        "price": 169.90,
+        "description": "",
+        "fromUnit": 1,
+        "salient": true,
+        "visible": true,
+        "default": true
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "brand": "AKTIVE",
+    "name": "Venda Aktive tape rosado",
+    "slug": "venda-aktive-tape-rosado-unidad",
+    "presentation": "Caja x 1 und.",
+    "thumbnail": "https://dcuk1cxrnzjkh.cloudfront.net/imagesproducto/015916L.jpg",
+    "rating": 5,
+    "image": {
+      "large": "https://dcuk1cxrnzjkh.cloudfront.net/imagesproducto/015916L.jpg"
+    },
+    "prices": [
+      {
+        "currency": "S/",
+        "price": 52.10,
+        "description": "OH",
+        "fromUnit": 1,
+        "salient": false,
+        "visible": true,
+        "default": false
+      },
+      {
+        "currency": "S/",
+        "price": 57.90,
+        "description": "",
+        "fromUnit": 1,
+        "salient": true,
+        "visible": true,
+        "default": true
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "brand": "LEÓN ÁMICA",
+    "name": "Hansaplast Parche León Árnica 12cm x 18 cm",
+    "slug": "hansaplast-parche-leon-arnica-12cm-x-18-cm",
+    "presentation": "Sobre 1 und.",
+    "thumbnail": "https://dcuk1cxrnzjkh.cloudfront.net/imagesproducto/604021L.jpg",
+    "rating": 5,
+    "image": {
+      "large": "https://dcuk1cxrnzjkh.cloudfront.net/imagesproducto/604021L.jpg"
+    },
+    "prices": [
+      {
+        "currency": "S/",
+        "price": 6.60,
+        "description": "",
+        "fromUnit": 1,
+        "salient": true,
+        "visible": true,
+        "default": true
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "brand": "SANOFI",
+    "name": "Enterogermina Suspensión Oral",
+    "slug": "enterogermina-suspension-oral",
+    "presentation": "Frasco bebible 1 und.",
+    "thumbnail": "https://dcuk1cxrnzjkh.cloudfront.net/imagesproducto/421011L.jpg",
+    "rating": 5,
+    "image": {
+      "large": "https://dcuk1cxrnzjkh.cloudfront.net/imagesproducto/421011L.jpg"
+    },
+    "prices": [
+      {
+        "currency": "S/",
+        "price": 3.70,
+        "description": "",
+        "fromUnit": 1,
+        "salient": true,
+        "visible": true,
+        "default": true
+      }
+    ]
+  }
+]
