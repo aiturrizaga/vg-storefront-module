@@ -1,1 +1,263 @@
-<p>product works!</p>
+<section class="text-gray-600 body-font overflow-hidden">
+  <div class="container px-5 pb-8 mt-8 mx-auto">
+    <div *ngIf="product" class="lg:w-4/5 mx-auto flex flex-wrap">
+      <img [alt]="product.name" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
+           [src]="product.image.large">
+      <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+        <h2 class="text-sm title-font text-gray-500 tracking-widest">{{ product.brand | uppercase }}</h2>
+        <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{ product.name }}</h1>
+        <div class="flex mb-4">
+          <span class="flex items-center">
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                 stroke-width="2" class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                 stroke-width="2" class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                 stroke-width="2" class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                 stroke-width="2" class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                 class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <span
+              class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded ms-3">{{ product.rating | number:'1.1-2' }}</span>
+          </span>
+        </div>
+        <p class="leading-relaxed">{{ product.presentation }}</p>
+
+        <div class="flex flex-col mt-4" *ngIf="product.prices && product.prices.length > 0">
+          <div *ngFor="let item of productHelper.getFlatPrices(product.prices)"
+               class="flex items-end justify-between mb-2">
+            <div class="text-xl font-bold text-gray-600"
+                 *ngIf="item.visible"
+                 [ngClass]="{'text-blue-700': item.description === 'OH'}">
+              {{ item.currency }} {{ item.price | number:'1.2-5' }}
+            </div>
+            <div [ngSwitch]="item.description">
+              <img *ngSwitchCase="'OH'" src="assets/images/logos/tarjeta-oh.svg" class="h-10 w-10" alt="Tarjeta Oh!">
+              <div *ngSwitchDefault class="text-md font-bold text-gray-600">
+                <span *ngIf="item.visible">{{ item.description }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="product.prices && product.prices.length > 0">
+            <div *ngFor="let item of productHelper.getSalientPrice(product.prices)" class="flex flex-col items-start">
+              <span class="text-md font-medium text-gray-700">{{ item.description }}{{ item.description ? ':' : '' }}</span>
+              <span
+                class="text-2xl font-bold text-gray-900">{{ item.currency }} {{ item.price | number:'1.2-5' }}</span>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn-primary border border-primary w-full mt-4">
+          Agregar al carrito
+        </button>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="bg-white pb-8 lg:py-10 antialiased">
+  <div class="max-w-2xl mx-auto px-4">
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-lg lg:text-2xl font-bold text-gray-900">Reseñas del producto (20)</h2>
+    </div>
+    <form class="mb-6">
+      <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-300">
+        <label for="comment" class="sr-only">Your comment</label>
+        <textarea id="comment" rows="6"
+                  class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none"
+                  placeholder="Escribe una reseña o comentario sobre este producto..." required></textarea>
+      </div>
+      <button type="submit"
+              class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-primary rounded-lg focus:ring-4 focus:ring-primary hover:bg-primary">
+        Publicar reseña
+      </button>
+    </form>
+    <article class="p-6 text-base bg-white rounded-lg">
+      <footer class="flex justify-between items-center mb-2">
+        <div class="flex items-center">
+          <p class="inline-flex items-center mr-3 text-sm text-gray-900 font-semibold"><img
+            class="mr-2 w-6 h-6 rounded-full"
+            src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
+            alt="Michael Gough">Michael Gough</p>
+          <p class="text-sm text-gray-600">
+            <time pubdate datetime="2023-02-08"
+                  title="February 8th, 2023">Feb. 8, 2023
+            </time>
+          </p>
+        </div>
+      </footer>
+      <p class="text-gray-500">
+        Me encantó este producto, es justo lo que necesitaba. Tiene una excelente calidad y un diseño muy bonito. El
+        envío fue rápido y el servicio al cliente muy atento. Lo recomiendo 100%.
+      </p>
+      <div class="flex items-center mt-4 space-x-4">
+          <span class="flex items-center">
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                 stroke-width="2" class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                 stroke-width="2" class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                 stroke-width="2" class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                 stroke-width="2" class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                 class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <span
+              class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded ms-3">4.0</span>
+          </span>
+      </div>
+    </article>
+    <article class="p-6 mb-3 ml-6 lg:ml-12 text-base bg-white rounded-lg">
+      <footer class="flex justify-between items-center mb-2">
+        <div class="flex items-center">
+          <p class="inline-flex items-center mr-3 text-sm text-gray-900 font-semibold"><img
+            class="mr-2 w-6 h-6 rounded-full"
+            src="https://vallegrande.edu.pe/wp-content/uploads/2023/03/perfil-instragram-2-150x150.png"
+            alt="Valle Grande">Valle Grande</p>
+          <p class="text-sm text-gray-600">
+            <time pubdate datetime="2023-02-12"
+                  title="February 12th, 2023">Feb. 12, 2023
+            </time>
+          </p>
+        </div>
+      </footer>
+      <p class="text-gray-500">
+        ¡Muchas gracias por tu comentario! Nos encanta que te guste el producto y nuestro servicio 😊
+      </p>
+    </article>
+    <article class="p-6 mb-3 text-base bg-white border-t border-gray-200">
+      <footer class="flex justify-between items-center mb-2">
+        <div class="flex items-center">
+          <p class="inline-flex items-center mr-3 text-sm text-gray-900 font-semibold"><img
+            class="mr-2 w-6 h-6 rounded-full"
+            src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
+            alt="Bonnie Green">Bonnie Green</p>
+          <p class="text-sm text-gray-600">
+            <time pubdate datetime="2023-03-12"
+                  title="March 12th, 2023">Mar. 12, 2023
+            </time>
+          </p>
+        </div>
+      </footer>
+      <p class="text-gray-500">
+        Este producto es una decepción, no cumple con lo que promete. Es de mala calidad y se rompió al poco tiempo de
+        usarlo.
+      </p>
+      <div class="flex items-center mt-4 space-x-4">
+        <span class="flex items-center">
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                 stroke-width="2" class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                 stroke-width="2" class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                 stroke-width="2" class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                 stroke-width="2" class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                 class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <span
+              class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded ms-3">2.0</span>
+          </span>
+      </div>
+    </article>
+    <article class="p-6 text-base bg-white border-t border-gray-200">
+      <footer class="flex justify-between items-center mb-2">
+        <div class="flex items-center">
+          <p class="inline-flex items-center mr-3 text-sm text-gray-900 font-semibold"><img
+            class="mr-2 w-6 h-6 rounded-full"
+            src="https://flowbite.com/docs/images/people/profile-picture-4.jpg"
+            alt="Helene Engels">Helene Engels</p>
+          <p class="text-sm text-gray-600">
+            <time pubdate datetime="2023-06-23"
+                  title="June 23rd, 2023">Jun. 23, 2023
+            </time>
+          </p>
+        </div>
+      </footer>
+      <p class="text-gray-500">
+        Este producto es bueno, pero no me convenció del todo. Tiene una calidad aceptable y un diseño simple. El envío
+        fue normal y el servicio al cliente regular.
+      </p>
+      <div class="flex items-center mt-4 space-x-4">
+        <span class="flex items-center">
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                 stroke-width="2" class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                 stroke-width="2" class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                 stroke-width="2" class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                 stroke-width="2" class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                 class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <span
+              class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded ms-3">3.0</span>
+          </span>
+      </div>
+    </article>
+  </div>
+</section>
