@@ -43,7 +43,9 @@
           {
             "allowTemplateLiterals" : true
           }
-        ]
+        ],
+        "no-alert": "error",
+        "no-debugger": "error"
       }
     },
     {

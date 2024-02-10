@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '@vg/core/services';
 import { Product } from '@vg/core/interfaces';
+import { environment } from '@vg/env/environment';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,7 @@ import { Product } from '@vg/core/interfaces';
 export class HomeComponent implements OnInit {
 
   public products: Product[] = [];
+  public mode: string = environment.mode;
 
   constructor(private productService: ProductService) {
   }
@@ -17,6 +19,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     window.scroll(0, 0);
     this.getProducts();
+    console.log('MODE: ', this.mode);
   }
 
   getProducts(): void {
