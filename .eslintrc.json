@@ -27,8 +27,21 @@
           "error",
           {
             "type": "element",
-            "prefix": "app",
+            "prefix": [
+              "app",
+              "vg"
+            ],
             "style": "kebab-case"
+          }
+        ],
+        "@angular-eslint/no-empty-lifecycle-method": [
+          "error"
+        ],
+        "quotes": [
+          "error",
+          "single",
+          {
+            "allowTemplateLiterals" : true
           }
         ]
       }
