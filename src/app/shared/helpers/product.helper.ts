@@ -5,11 +5,11 @@ import { Product, ProductPrice } from '@vg/core/interfaces';
   providedIn: 'root'
 })
 export class ProductHelper {
-  getFlatPrices(prices: ProductPrice[]): any[] {
+  getFlatPrices(prices: ProductPrice[]): ProductPrice[] {
     return prices.filter(res => !res.salient);
   }
 
-  getSalientPrice(prices: ProductPrice[]): any[] {
+  getSalientPrice(prices: ProductPrice[]): ProductPrice[] {
     return prices.filter(res => res.salient);
   }
 
@@ -21,7 +21,7 @@ export class ProductHelper {
   randomSort(products: Product[]): Product[] {
     const clone: Product[] = [...products];
     for (let i: number = clone.length - 1; i > 0; i--) {
-      let j = Math.floor(Math.random() * (i + 1));
+      const j = Math.floor(Math.random() * (i + 1));
       [clone [i], clone [j]] = [clone [j], clone [i]];
     }
     return clone;
